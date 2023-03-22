@@ -22,7 +22,7 @@ def generate_new_content(file_content, prompt):
             {"role": "user", "content": f"[Code]{file_content}\n[Prompt]{prompt}"}
         ]
     )
-    return completion['choices'][0]['message']['content'].replace("[Modified Code]\n", "")
+    return completion['choices'][0]['message']['content'].replace("[Modified Code]\n", "").replace("[Modified Code]", "")
 
 def main():
     if len(sys.argv) < 2:
