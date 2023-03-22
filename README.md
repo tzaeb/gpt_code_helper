@@ -11,7 +11,7 @@ Set your OpenAI API key as an environment variable named OPENAI_API_KEY.
 ## Usage
 1. Run the script with the name of the file you want to modify as an argument. Example: 
 ```
-python openai_code_helper.py example.py
+python .\gpt_code_helper.py "<This is the path to the code file>"
 ```
 2. The current content of the file will be displayed, followed by a prompt asking for instructions on what should be changed. 
 The prompt should follow the format: 

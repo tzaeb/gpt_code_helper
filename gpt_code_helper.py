@@ -14,21 +14,20 @@ def generate_new_content(file_content, prompt):
         messages=[
             {"role": "system", "content": 
                                             "You are a coding helper and modify code depenend on the prompts by the user. \
-                                            The response should be only the modified code, which starts with: [Modified Code]. \
+                                            The response should be only the modified code, which starts with: \
+                                            [Modified Code]\n<here is the modified code>. \
                                             The user input is separated like this:\n\
                                             [Code]<here is the code>\n\
                                             [Prompt]<here is some instruction what should be changed in the code>"},
             {"role": "user", "content": f"[Code]{file_content}\n[Prompt]{prompt}"}
-
         ]
     )
     return completion['choices'][0]['message']['content'].replace("[Modified Code]\n", "")
 
 def main():
     if len(sys.argv) < 2:
-        print("Please provide the name of a file to read and modify.\nUsing example content for now.")
-        filename = "WebApp\gpt_code_helper\code_example.py"
-        #sys.exit()
+        print("Please provide a filename as an argument. Using example content for now.")
+        filename = "code_example.py"
     else:
         filename = sys.argv[1]
 
@@ -46,6 +45,7 @@ def main():
         if res in ["y", "yes"]:
             with open(filename, 'w') as f:
                 f.write(new_content)
+
 
 if __name__ == '__main__':
     main()
