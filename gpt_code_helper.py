@@ -26,8 +26,8 @@ def generate_new_content(file_content, prompt):
 
 def main():
     if len(sys.argv) < 2:
-        print("Please provide a filename as an argument. Using example content for now.")
-        filename = "code_example.py"
+        print("Please provide a filename as an argument.")
+        sys.exit()
     else:
         filename = sys.argv[1]
 
@@ -45,7 +45,6 @@ def main():
         if res in ["y", "yes"]:
             with open(filename, 'w') as f:
                 f.write(new_content)
-
 
 if __name__ == '__main__':
     main()

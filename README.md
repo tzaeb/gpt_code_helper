@@ -1,5 +1,5 @@
 ## OpenAI Code Helper
-This Python script is designed to assist in modifying code by generating new content based on user input prompts using the OpenAI API.
+This Python script is designed to assist in modifying code by generating new content based on user input prompts using the OpenAI API with "gpt-3.5-turbo" model.
 
 ## Requirements
 - Python 3.x
