@@ -25,18 +25,18 @@ def generate_new_content(file_content, prompt):
     return completion['choices'][0]['message']['content'].replace("[Modified Code]\n", "").replace("[Modified Code]", "")
 
 def main():
-    if len(sys.argv) < 2:
+    if len(sys.argv) == 2:
+        filename = sys.argv[1]
+    else:
         print("Please provide a filename as an argument.")
         sys.exit()
-    else:
-        filename = sys.argv[1]
 
     # Read the contents of the file
     with open(filename, 'r') as f:
         file_content = f.read()
 
     # Prompt the user to modify the file content
-    prompt = input("Current content:\n{}\n\nEnter instruction what should be changed, or leave blank:\n".format(file_content))
+    prompt = input("Current content:\n{}\n\nEnter instruction what should be changed:\n".format(file_content))
     if prompt:
         new_content = generate_new_content(file_content, prompt)
         print(f"Here is the new content:\n{new_content}")
